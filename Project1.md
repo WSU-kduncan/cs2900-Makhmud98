@@ -5,7 +5,7 @@
 My Virtual Machine has 2042 Megabytes of data, which is equal to roughly 2 gigabytes. It is fixed, because I specified the memory allocated to the VM. On the other hand, flexible disk space can expand as you add more data to it.
 
 - How much RAM? What about your host?  
-My Virtual Machine has 27 MB or Ram. While this is horrible, it is enough to run basic video display modules. My host machine has 8 Gigabytes of Video Memory, this allows it to run multiple displays and can outperform the VM by miles.
+My Virtual Machine has 27 MB or Ram. While this is horrible, it is enough to run basic video display modules. My host machine has 8 Gigabytes of Video Memory, this allows it to run multiple displays and can outperform the VM by miles. 
 
 - 3D acceleration? What performance do you need out of your VM? Do you even have GPU resources to make this really worthwhile?  
 3D Acceleration is a handy tool that allows the VM to use the hosts video memory to be used. If you plan on doing work on the VM which will exceed 27MB of Ram, for example running multiple displays that use video memory. In my case I do not need that kind of performance from my VM, atleast not yet. I do have enough GPU resources to make this possible, but at this moment there is no need for it.
@@ -38,10 +38,22 @@ It is possible to allow your VM to be accessed through the Host operating system
 - Explore the sizes of creating "snapshots" vs. templates / clone. What do each of these achieve?  
 Snapshots are more of a backup file incase something goes wrong with your VM. While cloning will create a entirely new guest machine which can be run seperately. Snapshots are much smaller files while cloning creates an entirely seperate VM which will take up more space.
 
-Exploring Guest Networking ( / 2)
-Understanding of Host networking situation
-Understanding of Guest networking situation
+## Exploring Guest Networking ( / 2)
 
-# Part 3 - Networking with Style ( / 2)
-Pick a networking method besides NAT, and see what it does.
+- Explain your approximate networking configuration for your Host
+My host's network is conducted by a physical router which contains data in packets. The router analyzes the data and determines which is the ebst way for the data to reach the finish line. My hosts IP is a unique number assigned to each device connected to a network which it uses for communication. The IP finds the device host network and the location of it. This IP is also used as a header when sending information from one IP to the destination. The IP can distinguish the device by the port that it is connected to, a good example of this was that the IP address is the hotel and the ports are the rooms inside the hotel.  
+
+
+- Explain the network configuration for your Guest  
+The guest network is connected to the host, it will receive the same Mac address and be apart of the same IP address. The guest network IP address will be obtained by the DHCP service which is a built in service of most if not all virtual machine emulators. If your guest VM uses a NAT networking type, then it will use the physical network of the host as an external network to allow connection to the Internet.
+
+## Part 3 - Networking with Style
+- Pick a networking method besides NAT, and see what it does.  
+I picked 'bridge network' and first thing I did was test out the network speed to see if it can remotely come close to the host network speed. However after waiting about 2 minutes for the speed test website to load I could only assume the worst. I also noticed that my IP address specified by the speed test website was the same as my VM box IP address.
+
 Document the networking configuration you choose.
+Network Type : Bridged Network
+Adapter Type | Intel PRO/1000 MT  
+Promiscous Mode | DENY  
+Mac Address | CREATED  
+Cable Connection | Checked  
