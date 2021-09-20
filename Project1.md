@@ -27,28 +27,38 @@ Make sure the machine is powered off and the select the settings for the machine
 Exploring Host Disk Usage ( / 2)
 
 - Describe where your Guest OS is saved and how much space it takes up  
+
 They are stored inside your VirtualBox (Or Other VM Software) folder which is usually in the Usr/VirtualBox folder; however you can choose to change it. The amount of space it takes is determined by how much memory and data you have inside this VM.
 
+
 - From your configuration above, is this going to expand?  
+
 Depending on your memory allocation of the VM it could expand. However in my VM it will not expand unless I tell it to.
 
+
 - Can you directly access your Guest files from the virtual machine image folder? Why or why not?  
+
 It is possible to allow your VM to be accessed through the Host operating system, this is done by creating shared folders between your VM and your host system.
 
+
 - Explore the sizes of creating "snapshots" vs. templates / clone. What do each of these achieve?  
+
 Snapshots are more of a backup file incase something goes wrong with your VM. While cloning will create a entirely new guest machine which can be run seperately. Snapshots are much smaller files while cloning creates an entirely seperate VM which will take up more space.
 
 ## Exploring Guest Networking ( / 2)
 
-- Explain your approximate networking configuration for your Host
+- Explain your approximate networking configuration for your Host  
+
 My host's network is conducted by a physical router which contains data in packets. The router analyzes the data and determines which is the ebst way for the data to reach the finish line. My hosts IP is a unique number assigned to each device connected to a network which it uses for communication. The IP finds the device host network and the location of it. This IP is also used as a header when sending information from one IP to the destination. The IP can distinguish the device by the port that it is connected to, a good example of this was that the IP address is the hotel and the ports are the rooms inside the hotel.  
 
 
 - Explain the network configuration for your Guest  
+
 The guest network is connected to the host, it will receive the same Mac address and be apart of the same IP address. The guest network IP address will be obtained by the DHCP service which is a built in service of most if not all virtual machine emulators. If your guest VM uses a NAT networking type, then it will use the physical network of the host as an external network to allow connection to the Internet.
 
 ## Part 3 - Networking with Style
 - Pick a networking method besides NAT, and see what it does.  
+
 I picked 'bridge network' and first thing I did was test out the network speed to see if it can remotely come close to the host network speed. However after waiting about 2 minutes for the speed test website to load I could only assume the worst. I also noticed that my IP address specified by the speed test website was the same as my VM box IP address.
 
 Document the networking configuration you choose.
