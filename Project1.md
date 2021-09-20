@@ -61,7 +61,7 @@ The guest network is connected to the host, it will receive the same Mac address
 
 I picked 'bridge network' and first thing I did was test out the network speed to see if it can remotely come close to the host network speed. However after waiting about 2 minutes for the speed test website to load I could only assume the worst. I also noticed that my IP address specified by the speed test website was the same as my VM box IP address.
 
-Document the networking configuration you choose.
+Document the networking configuration you choose.  
 Network Type : Bridged Network
 Adapter Type | Intel PRO/1000 MT  
 Promiscous Mode | DENY  
