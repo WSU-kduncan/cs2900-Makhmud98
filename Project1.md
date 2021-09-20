@@ -1,7 +1,7 @@
 # Part 1 - Building VMs ( / 4)
 
 ## Create a new Virtual Machine ( / 2)
-- How much disk space? Fixed or flex?
+- How much disk space? Fixed or flex?  
 My Virtual Machine has 2042 Megabytes of data, which is equal to roughly 2 gigabytes. It is fixed, because I specified the memory allocated to the VM. On the other hand, flexible disk space can expand as you add more data to it.
 
 - How much RAM? What about your host?
