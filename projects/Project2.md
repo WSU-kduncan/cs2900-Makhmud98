@@ -29,10 +29,13 @@
 ## Running A Container
 
 ### Initializing versus running the container, and why there is a difference
+- Initialized containers alwasy run to a completion, they are also containers that run before the main container. They have scripts that prepare for the environments for your containorized environment as well. 
 
 ### Run and enter shell
+- The purpose of running and entering a shell is to be able to communicate through a secure communication. It also provides a password or a public-key that authenticates and encrypts the connection.
 
 ### Run in detached mode
+- The purpose of detached mode is if you want to run container in the background of the terminal you are using. Whenever you are not using the container you could have it in detached mode as well.
 
 
 ##  Logs & Status
