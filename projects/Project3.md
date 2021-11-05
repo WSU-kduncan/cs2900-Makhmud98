@@ -3,8 +3,10 @@
 ## Investigate available mounts  
 ### For the two engines of your choice (of which Docker can be one choice) state:  
 - the mount type(s) available & how to use the mount type(s) for the container  
-: Docker - Bind Mounts, Volume, tmpfs mount, read-only Bind Mount  
+Docker - Bind Mounts, Volume, tmpfs mount
+LXC    - Bind Mounts
 
+- Docker  
 ```
 Bind Mount 
 $ docker run -d \ it \ --name name \ mount type=bind,source=/hostfolder,target=/containerfolder\ bindname
@@ -18,8 +20,9 @@ $ docker volume create newvolume
 tmpfs Mount 
 $ docker run -d \-it \--name tmptest \--mount type=tmpfs,destination=/app \nginx:latest
 ```  
+
+
 - LXC  
-:LXC - Bind Mount
 ```
 Bind Mount
 $ lxc.mount.entry = /path/to/folder/on/host /path/to/mount/point none bind 0 0
@@ -32,19 +35,26 @@ $ lxc config device add <container name> <name> disk source=<root path> path=<en
 ###  build an image (the command) & Write to file  
 
 - Docker : 
-```
-********* Install Required Packages
-$npm install express-generator -g
 
-********* Install dependencies
+- Install Required Packages
+```
+$npm install express-generator -g
+```
+
+- Install dependencies
+``` 
 $ npm install
 $ npm start
+```
 
-// create a file with the dockerfile name & .dockerignore
+- create a file with the dockerfile name & .dockerignore
+```
 $ touch Dockerfile
 $ touch .dockerignore
+```
 
-********* Build Architecture
+- Build Architecture
+```
 # Filename: Dockerfile 
 FROM node:10-alpine
 WORKDIR /usr/src/app
@@ -53,32 +63,43 @@ RUN npm install
 COPY . .
 EXPOSE (Port Number)
 CMD ["npm", "start"]
+```
 
-********* Now Build Image
+- Now Build Image
+```
 $ docker build .
-
-
 ```  
 
 - LXC    : 
-```
-********* Create a base container
-$ sudo apt install debootstrap
 
-********* Create Debian with debootstrap
+- Create a base container
+```
+$ sudo apt install debootstrap
+```  
+
+- Create Debian with debootstrap
+```
 $ mkdir /tmp/sid-lxd
 $ sudo debootstrap sid /tmp/sid-lxd
+```
 
-********* Create a metadata file (metadata.yaml )to describe things like name, date, architecture, then create a tarball from this file  
+- Create a metadata file (metadata.yaml )to describe things like name, date, architecture, then create a tarball from this file 
+```   
 $ tar -cvzf metadata.tar.gz metadata.yaml
+``` 
 
-********* Now Build An Image
+- Now Build An Image
+```
 $ lxc image import metadata.tar.gz --alias sid-nodejs
+```  
 
-********* Create your new container from this image
+- Create your new container from this image
+```
 $ lxc launch sid-nodejs 
+```
 
-********* The architechture is contained in the metadata.yaml
+- The architechture is contained in the metadata.yaml
+```
 architecture: x86_64
 creation_date: 1424284563
 properties:
